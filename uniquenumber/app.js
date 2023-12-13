@@ -9,7 +9,7 @@
 function findUniq(arr) {
     // do magic
     let uni = [...new Set(arr)]
-    const [a, b] = uni
+    const [a, b] = uni;
     let unique;
     (a === arr[0] && a === arr[1] ) || (a === arr[0] && a === arr[2])? unique = b : unique = a
 
