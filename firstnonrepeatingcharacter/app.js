@@ -1,14 +1,36 @@
-// Write a function named first_non_repeating_letter that takes a string input, and returns the first character that is not repeated anywhere in the string.
+// Your job is to write a function which increments a string, to create a new string.
 
-// For example, if given the input 'stress', the function should return 't', since the letter t only occurs once in the string, and occurs first in the string.
+// If the string already ends with a number, the number should be incremented by 1.
+// If the string does not end with a number. the number 1 should be appended to the new string.
+// Examples:
 
-// As an added challenge, upper- and lowercase letters are considered the same character, but the function should return the correct case for the initial letter. For example, the input 'sTreSS' should return 'T'.
+// foo -> foo1
 
-// If a string contains all repeating characters, it should return an empty string ("") or None -- see sample tests.
+// foobar23 -> foobar24
 
-function firstNonRepeatingLetter(s) {
-    // Add your code here
+// foo0042 -> foo0043
+
+// foo9 -> foo10
+
+// foo099 -> foo100
+
+// Attention: If the number has leading zeros the amount of digits should be considered.
+function incrementString(strng) {
+  let finalStr = "";
+  const numPat = /[^0-9]/g;
+  const strPat = /\d+/g;
+
+  if (strPat.test(strng) === false) {
+    finalStr = strng + 1;
+  } else {
+    let str = strng.match(numPat).join("");
+    let num = strng.match(strPat);
+    console.log(num[0]);
+    console.log(parseFloat(num, 10));
+    finalStr = str + (parseInt(num, 10) + 1);
   }
-str =  "for"
-  str.indexOf("o")
-  str.includes("o")
+
+  return finalStr;
+}
+
+console.log(incrementString("foobar001"));
